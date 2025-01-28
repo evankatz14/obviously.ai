@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { Dataset } from "../types/datasets.interface";
+import { Dataset } from "../../types/datasets.interface";
 import styles from "./DatasetRow.module.css";
-import Trash from "../assets/trash.svg";
-import Status from "./Status";
-import Checked from "../assets/blue-checked.svg";
-import Unchecked from "../assets/unchecked.svg";
+import Trash from "../../assets/trash.svg";
+import Status from "../Status/Status";
+import Checked from "../../assets/blue-checked.svg";
+import Unchecked from "../../assets/unchecked.svg";
 
 export interface DatasetRowProps {
   dataset: Dataset;
@@ -19,7 +19,7 @@ function DatasetRow({ dataset, isChecked, onRemove }: DatasetRowProps) {
   useEffect(() => {
     const importIcon = async () => {
       try {
-        const icon = await import(`../assets/${dataset.type}.svg`);
+        const icon = await import(`../../assets/${dataset.type}.svg`);
         setIconSrc(icon.default);
       } catch (error) {
         console.error(`Error importing icon for ${dataset.type}`);

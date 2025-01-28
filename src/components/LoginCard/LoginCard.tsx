@@ -1,6 +1,6 @@
 import styles from "./LoginCard.module.css";
-import GoogleLogo from "../assets/Google_logo.svg";
-import LinkedInLogo from "../assets/LinkedIn_logo.svg";
+import GoogleLogo from "../../assets/Google_logo.svg";
+import LinkedInLogo from "../../assets/LinkedIn_logo.svg";
 import { useNavigate } from "react-router-dom";
 
 function LoginCard() {

@@ -1,4 +1,4 @@
-import Logo from "../assets/Logo_Brandmark_FullColor.svg";
+import Logo from "../../assets/Logo_Brandmark_FullColor.svg";
 import styles from "./Header.module.css";
 
 function Header() {

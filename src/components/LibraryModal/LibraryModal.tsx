@@ -1,8 +1,8 @@
 import styles from "./LibraryModal.module.css";
-import Search from "../assets/search.svg";
-import RightArrow from "../assets/right-arrow.svg";
-import { Dataset } from "../types/datasets.interface";
-import DatasetsTable from "./DatasetsTable";
+import Search from "../../assets/search.svg";
+import RightArrow from "../../assets/right-arrow.svg";
+import { Dataset } from "../../types/datasets.interface";
+import DatasetsTable from "../DatasetsTable/DatasetsTable";
 import { useMemo, useState } from "react";
 import debounce from "lodash.debounce";
 

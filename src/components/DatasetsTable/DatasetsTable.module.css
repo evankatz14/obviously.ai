@@ -27,6 +27,7 @@
 
 .arrowIcon {
   height: 12px;
+  width: 10x;
   margin-left: 7px;
   transition: transform 0.3s ease;
   position: relative;

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
+import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
 import "./Library.module.css";
 import styles from "./Library.module.css";
-import Modal from "../components/Modal";
-import LibraryModal from "../components/LibraryModal";
-import { Dataset } from "../types/datasets.interface";
-import { mockDatasets } from "../mockDatasets";
+import Modal from "../../components/Modal/Modal";
+import LibraryModal from "../../components/LibraryModal/LibraryModal";
+import { Dataset } from "../../types/datasets.interface";
+import { mockDatasets } from "../../mockDatasets";
 
 function Library() {
   const [isModalOpen, setIsModalOpen] = useState(false);

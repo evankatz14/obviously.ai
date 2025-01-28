@@ -1,7 +1,7 @@
-import LoginIcon from "../assets/login.svg";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import LoginCard from "../components/LoginCard";
+import LoginIcon from "../../assets/login.svg";
+import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
+import LoginCard from "../../components/LoginCard/LoginCard";
 import styles from "./Login.module.css";
 
 function Login() {

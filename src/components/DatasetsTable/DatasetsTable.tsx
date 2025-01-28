@@ -1,9 +1,9 @@
-import { LibraryModalProps } from "./LibraryModal";
+import { LibraryModalProps } from "../LibraryModal/LibraryModal";
 import styles from "./DatasetsTable.module.css";
-import DatasetRow from "./DatasetRow";
-import DownArrow from "../assets/down-arrow.svg";
-import Checked from "../assets/purple-checked.svg";
-import Unchecked from "../assets/unchecked.svg";
+import DatasetRow from "../DatasetRow/DatasetRow";
+import DownArrow from "../../assets/down-arrow.svg";
+import Checked from "../../assets/purple-checked.svg";
+import Unchecked from "../../assets/unchecked.svg";
 import { useMemo, useState } from "react";
 
 function DatasetsTable({ datasets, handleRemoveDataset }: LibraryModalProps) {

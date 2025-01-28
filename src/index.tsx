@@ -7,8 +7,8 @@ import {
   Navigate,
 } from "react-router-dom";
 import "./index.css";
-import Login from "./pages/Login";
-import Library from "./pages/Library";
+import Login from "./pages/Login/Login";
+import Library from "./pages/Library/Library";
 
 const rootElement = document.getElementById("root");
 
