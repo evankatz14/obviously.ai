@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.button {
+  padding: 10px 16px;
+  background-color: #3882ff;
+  color: #ffffff;
+  border: solid 2px transparent;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  cursor: pointer;
+  background-clip: padding-box;
+  border-image: linear-gradient(90deg, #ffffff 12%, #ffffff 0%) 1;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}

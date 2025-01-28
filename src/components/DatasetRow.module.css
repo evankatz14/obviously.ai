@@ -1,0 +1,23 @@
+.statusIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.horizontalSplit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.verticalStack {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+p {
+  margin: 0;
+}

@@ -1,0 +1,13 @@
+.footer {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: rgba(255, 255, 255); /* Opaque background */
+  z-index: 1;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #535862;
+  padding: 12px 24px;
+}

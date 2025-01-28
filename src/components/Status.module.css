@@ -1,0 +1,39 @@
+.statusPill {
+  display: flex;
+  align-items: center;
+  padding: 2px 6px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid;
+  box-sizing: border-box;
+  width: fit-content;
+  text-transform: capitalize;
+}
+
+.statusCircle {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.successCircle {
+  background-color: #17b26a;
+}
+
+.errorCircle {
+  background-color: #f04438;
+}
+
+.success {
+  background-color: #ecfdf3;
+  border-color: #abefc6;
+  color: #067647;
+}
+
+.error {
+  background-color: #fef3f2;
+  border-color: #fecdca;
+  color: #b42318;
+}
