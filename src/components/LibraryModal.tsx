@@ -3,12 +3,26 @@ import Search from "../assets/search.svg";
 import RightArrow from "../assets/right-arrow.svg";
 import { Dataset } from "../types/datasets.interface";
 import DatasetsTable from "./DatasetsTable";
+import { useMemo, useState } from "react";
+import debounce from "lodash.debounce";
 
 export interface LibraryModalProps {
   datasets: Dataset[];
 }
 
 function LibraryModal({ datasets }: LibraryModalProps) {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const debouncedHandleSearch = useMemo(() => debounce(handleSearch, 300), []);
+
+  const filteredDatasets = datasets.filter((dataset) =>
+    dataset.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Library</h1>
@@ -23,9 +37,10 @@ function LibraryModal({ datasets }: LibraryModalProps) {
           type="text"
           placeholder="Search"
           className={styles.searchInput}
+          onChange={debouncedHandleSearch}
         />
       </div>
-      <DatasetsTable datasets={datasets} />
+      <DatasetsTable datasets={filteredDatasets} />
       <div className={styles.right}>
         <button className={styles.button}>
           Next

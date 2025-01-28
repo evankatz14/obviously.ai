@@ -39,13 +39,21 @@ function DatasetsTable({ datasets }: LibraryModalProps) {
           </tr>
         </thead>
         <tbody>
-          {datasets.map((dataset) => (
-            <DatasetRow
-              key={dataset.id}
-              dataset={dataset}
-              isChecked={isClicked}
-            />
-          ))}
+          {datasets.length > 0 ? (
+            datasets.map((dataset) => (
+              <DatasetRow
+                key={dataset.id}
+                dataset={dataset}
+                isChecked={isClicked}
+              />
+            ))
+          ) : (
+            <tr>
+              <td colSpan={5} className={styles.noResults}>
+                No results found
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>
