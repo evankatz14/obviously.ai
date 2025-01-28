@@ -8,9 +8,10 @@ import debounce from "lodash.debounce";
 
 export interface LibraryModalProps {
   datasets: Dataset[];
+  handleRemoveDataset: (id: number) => void;
 }
 
-function LibraryModal({ datasets }: LibraryModalProps) {
+function LibraryModal({ datasets, handleRemoveDataset }: LibraryModalProps) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,7 +41,10 @@ function LibraryModal({ datasets }: LibraryModalProps) {
           onChange={debouncedHandleSearch}
         />
       </div>
-      <DatasetsTable datasets={filteredDatasets} />
+      <DatasetsTable
+        datasets={filteredDatasets}
+        handleRemoveDataset={handleRemoveDataset}
+      />
       <div className={styles.right}>
         <button className={styles.button}>
           Next

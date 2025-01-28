@@ -1,3 +1,11 @@
+.checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: relative;
+  top: 2px;
+}
+
 .statusIcon {
   width: 20px;
   height: 20px;

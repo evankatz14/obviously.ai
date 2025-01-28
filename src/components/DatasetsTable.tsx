@@ -4,13 +4,29 @@ import DatasetRow from "./DatasetRow";
 import DownArrow from "../assets/down-arrow.svg";
 import Checked from "../assets/purple-checked.svg";
 import Unchecked from "../assets/unchecked.svg";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
-function DatasetsTable({ datasets }: LibraryModalProps) {
+function DatasetsTable({ datasets, handleRemoveDataset }: LibraryModalProps) {
   const [isClicked, setIsClicked] = useState(false);
+  const [isSorted, setIsSorted] = useState<"ASC" | "DSC" | false>(false);
+
+  const handleSort = () => {
+    setIsSorted((prevSort) => (prevSort === "ASC" ? "DSC" : "ASC"));
+  };
+
   const handleClickCheck = () => {
     setIsClicked(!isClicked);
   };
+
+  const sortedDatasets = useMemo(() => {
+    if (isSorted === "ASC") {
+      return [...datasets].sort((a, b) => a.name.localeCompare(b.name));
+    } else if (isSorted === "DSC") {
+      return [...datasets].sort((a, b) => b.name.localeCompare(a.name));
+    } else {
+      return datasets;
+    }
+  }, [datasets, isSorted]);
 
   return (
     <div className={styles.tableContainer}>
@@ -21,30 +37,35 @@ function DatasetsTable({ datasets }: LibraryModalProps) {
               <img
                 src={isClicked ? Checked : Unchecked}
                 alt="checked box"
-                style={{ width: "20px", height: "20px", cursor: "pointer" }}
+                className={styles.checkbox}
                 onClick={handleClickCheck}
               />
             </th>
-            <th>
-              Dataset Name
-              <img
-                src={DownArrow}
-                alt="down arrow"
-                className={styles.arrowIcon}
-              />
+            <th className={styles.name}>
+              <div onClick={handleSort} className={styles.sort}>
+                Dataset Name
+                <img
+                  src={DownArrow}
+                  alt="down arrow"
+                  className={`${styles.arrowIcon} ${
+                    isSorted === "DSC" ? styles.rotated : ""
+                  }`}
+                />
+              </div>
             </th>
-            <th>Status</th>
-            <th>Created at</th>
+            <th className={styles.status}>Status</th>
+            <th className={styles.createdAt}>Created at</th>
             <th>Created by</th>
           </tr>
         </thead>
         <tbody>
-          {datasets.length > 0 ? (
-            datasets.map((dataset) => (
+          {sortedDatasets.length > 0 ? (
+            sortedDatasets.map((dataset) => (
               <DatasetRow
                 key={dataset.id}
                 dataset={dataset}
                 isChecked={isClicked}
+                onRemove={handleRemoveDataset}
               />
             ))
           ) : (

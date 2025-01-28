@@ -22,6 +22,9 @@ function Library() {
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+  const handleRemoveDataset = (id: number) => {
+    setDatasets(datasets.filter((dataset) => dataset.id !== id));
+  };
 
   return (
     <>
@@ -34,7 +37,10 @@ function Library() {
       </div>
       <Footer />
       <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <LibraryModal datasets={datasets} />
+        <LibraryModal
+          datasets={datasets}
+          handleRemoveDataset={handleRemoveDataset}
+        />
       </Modal>
     </>
   );

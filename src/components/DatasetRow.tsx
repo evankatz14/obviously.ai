@@ -6,13 +6,13 @@ import Status from "./Status";
 import Checked from "../assets/blue-checked.svg";
 import Unchecked from "../assets/unchecked.svg";
 
-function DatasetRow({
-  dataset,
-  isChecked,
-}: {
+export interface DatasetRowProps {
   dataset: Dataset;
   isChecked: boolean;
-}) {
+  onRemove: (id: number) => void;
+}
+
+function DatasetRow({ dataset, isChecked, onRemove }: DatasetRowProps) {
   const [iconSrc, setIconSrc] = useState<string | null>(null);
   const [isClicked, setIsClicked] = useState(false);
 
@@ -37,13 +37,17 @@ function DatasetRow({
     setIsClicked(!isClicked);
   };
 
+  const handleRemove = () => {
+    onRemove(dataset.id);
+  };
+
   return (
     <tr key={dataset.id}>
       <td>
         <img
           src={isClicked ? Checked : Unchecked}
           alt="checked box"
-          style={{ width: "20px", height: "20px", cursor: "pointer" }}
+          className={styles.checkbox}
           onClick={handleClickCheck}
         />
       </td>
@@ -62,7 +66,12 @@ function DatasetRow({
           <p>{dataset.creator}</p>
           <p>{dataset.email}</p>
         </div>
-        <img src={Trash} alt="trash icon" className={styles.statusIcon} />
+        <img
+          src={Trash}
+          alt="trash icon"
+          onClick={handleRemove}
+          className={styles.statusIcon}
+        />
       </td>
     </tr>
   );
