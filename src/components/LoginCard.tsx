@@ -1,11 +1,18 @@
 import styles from "./LoginCard.module.css";
 import GoogleLogo from "../assets/Google_logo.svg";
 import LinkedInLogo from "../assets/LinkedIn_logo.svg";
+import { useNavigate } from "react-router-dom";
 
 function LoginCard() {
+  const navigate = useNavigate();
+
+  const handleClick = (event: React.FormEvent) => {
+    event.preventDefault();
+    navigate("/library");
+  };
   return (
     <div className={styles.loginCard}>
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={handleClick}>
         <div className={styles.formGroup}>
           <label htmlFor="email" className={styles.label}>
             Email
@@ -45,11 +52,11 @@ function LoginCard() {
         <div className={styles.line}></div>
       </div>
       <div className={styles.buttonContainer}>
-        <button className={styles.buttonSecondary}>
+        <button className={styles.buttonSecondary} onClick={handleClick}>
           <img src={GoogleLogo} alt="Google logo" className={styles.icon} />
           Sign up with Google
         </button>
-        <button className={styles.buttonSecondary}>
+        <button className={styles.buttonSecondary} onClick={handleClick}>
           <img src={LinkedInLogo} alt="LinkedIn logo" className={styles.icon} />
           Sign up with Linkedin
         </button>
