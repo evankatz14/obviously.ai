@@ -7,19 +7,6 @@
   padding-bottom: 80px;
 }
 
-.header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: rgba(255, 255, 255); /* Opaque background */
-  z-index: 1;
-  font-weight: 600;
-  font-size: 30px;
-  line-height: 38px;
-  color: #181d27;
-  padding: 12px 24px;
-}
-
 .login {
   display: flex;
   flex-direction: column;
@@ -41,10 +28,6 @@
   line-height: 24px;
   color: #535862;
   margin-bottom: 24px;
-}
-
-.logo {
-  width: 131px;
 }
 
 .iconContainer {

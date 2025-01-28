@@ -1,14 +1,13 @@
+import LoginIcon from "../assets/login.svg";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 import LoginCard from "../components/LoginCard";
 import styles from "./Login.module.css";
-import Logo from "../assets/Logo_Brandmark_FullColor.svg";
-import LoginIcon from "../assets/login.svg";
 
 function Login() {
   return (
     <div>
-      <div className={styles.header}>
-        <img src={Logo} alt="Obviously Logo" className={styles.logo} />
-      </div>
+      <Header />
       <div className={styles.container}>
         <div className={styles.login}>
           <div className={styles.iconContainer}>
@@ -27,9 +26,7 @@ function Login() {
           </div>
         </div>
       </div>
-      <div className={styles.footer}>
-        © Copyrights 2025 by Obviously AI, Inc. All rights reserved.
-      </div>
+      <Footer />
     </div>
   );
 }
